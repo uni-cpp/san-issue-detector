@@ -1,4 +1,5 @@
 #include <uni/asan/collection.hpp>
+#include <uni/tsan/collection.hpp>
 #include <uni/ubsan/collection.hpp>
 
 int
@@ -24,6 +25,12 @@ main( )
     // ub_collection.get_division_by_zero();
     // ub_collection.get_nullptr_violation();
     ub_collection.get_invalid_object_size( );
+
+    uni::tsan::Collection tsan_collection;
+    tsan_collection.get_normal_data_races( );
+    tsan_collection.get_vptr_data_races( );
+    tsan_collection.get_heap_use_after_free( );
+    tsan_collection.get_potential_deadlock( );
 
     return 0;
 }
