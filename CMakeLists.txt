@@ -20,6 +20,7 @@ add_executable( ${PROJECT_NAME}
     ${HEADERS}
     ${SOURCES}
 )
+add_executable(uni::san-issue-detector ALIAS ${PROJECT_NAME} )
 
 target_include_directories( ${PROJECT_NAME}
     PRIVATE
